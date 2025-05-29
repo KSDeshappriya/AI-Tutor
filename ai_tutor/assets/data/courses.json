@@ -1,0 +1,341 @@
+{
+  "courses": {    "IOT": {
+      "title": "Internet of Things (IoT)",
+      "description": "Learn about connected devices and smart systems that form the backbone of modern technology",
+      "duration": "6 weeks",
+      "rating": "4.6",
+      "students": "2.1k",
+      "instructor": "Dr. Samsudeen Ashad",
+      "imagePath": "assets/course_img/iot.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Introduction to IoT",
+          "duration": "15 min",
+          "type": "content",
+          "content": "The Internet of Things (IoT) represents a revolutionary paradigm where everyday objects are interconnected through the internet, enabling them to collect, exchange, and act on data. This interconnected ecosystem transforms ordinary devices into smart, responsive systems that can improve efficiency, convenience, and decision-making across various domains.\n\nIoT encompasses a vast network of physical devices embedded with sensors, software, and connectivity capabilities. These devices range from simple household appliances like smart thermostats and light bulbs to complex industrial machinery and autonomous vehicles. The fundamental principle behind IoT is to create a seamless flow of information between the physical and digital worlds.\n\nThe evolution of IoT has been driven by several technological advancements including miniaturization of sensors, improved wireless connectivity, cloud computing capabilities, and the development of powerful yet energy-efficient processors. These innovations have made it economically viable to embed intelligence into virtually any device.\n\nKey characteristics of IoT systems include real-time data collection, remote monitoring and control, automated decision-making, and predictive analytics. These capabilities enable applications such as smart homes that adjust lighting and temperature based on occupancy, smart cities that optimize traffic flow and energy consumption, and industrial IoT systems that predict equipment failures before they occur."
+        },
+        {
+          "id": 2,
+          "title": "IoT Hardware Components",
+          "duration": "20 min",
+          "type": "content",
+          "content": "IoT devices consist of several essential hardware components that work together to enable connectivity and functionality. Understanding these components is crucial for designing and implementing effective IoT solutions.\n\nMicrocontrollers serve as the brain of IoT devices, executing programmed instructions and managing device operations. Popular choices include Arduino, Raspberry Pi, and ESP32 boards, each offering different capabilities in terms of processing power, memory, and built-in connectivity options.\n\nSensors are the sensory organs of IoT devices, converting physical phenomena into digital signals. Common sensor types include temperature and humidity sensors (DHT22), motion detectors (PIR sensors), light sensors (LDR), pressure sensors, accelerometers, and gyroscopes. The selection of appropriate sensors depends on the specific application requirements and environmental conditions.\n\nCommunication modules enable IoT devices to connect to networks and transmit data. These include Wi-Fi modules for local network connectivity, Bluetooth for short-range communication, cellular modems for wide-area coverage, and specialized protocols like LoRaWAN for long-range, low-power applications.\n\nPower management is critical in IoT design, especially for battery-powered devices. This involves selecting appropriate power sources, implementing power-saving modes, and optimizing energy consumption through efficient hardware design and software algorithms. Solar panels, rechargeable batteries, and energy harvesting techniques are commonly employed to ensure sustainable operation."
+        },
+        {
+          "id": 3,
+          "title": "Sensors and Actuators",
+          "duration": "18 min",
+          "type": "content",
+          "content": "Sensors and actuators form the interface between IoT systems and the physical world. Sensors collect environmental data, while actuators enable IoT devices to take physical actions based on processed information.\n\nEnvironmental sensors monitor conditions such as temperature, humidity, air quality, and atmospheric pressure. These are widely used in smart agriculture, building automation, and environmental monitoring systems. For example, soil moisture sensors in smart farming applications trigger automatic irrigation when soil conditions require watering.\n\nMotion and proximity sensors detect movement and object presence. Passive Infrared (PIR) sensors are commonly used in security systems and smart lighting, while ultrasonic sensors measure distance and are useful for parking assistance and inventory management applications.\n\nImage and audio sensors, including cameras and microphones, enable IoT systems to process visual and auditory information. These components are essential for surveillance systems, voice-activated devices, and applications requiring computer vision capabilities.\n\nActuators translate digital commands into physical actions. Motor actuators control movement in robotic systems and automated machinery. Relay switches control electrical devices like lights, fans, and appliances. Servo motors provide precise positioning control for applications requiring accurate movement.\n\nSolenoid valves control fluid flow in irrigation systems and industrial processes. LED indicators and displays provide visual feedback to users. Speakers and buzzers deliver audio alerts and notifications. The integration of sensors and actuators creates feedback loops that enable autonomous operation and responsive behavior in IoT systems."
+        },
+        {
+          "id": 4,
+          "title": "IoT Communication Protocols",
+          "duration": "25 min",
+          "type": "content",
+          "content": "Communication protocols are the foundation of IoT connectivity, defining how devices exchange information across networks. Understanding these protocols is essential for designing efficient and reliable IoT systems.\n\nWi-Fi remains one of the most popular protocols for IoT applications due to its high data throughput and widespread infrastructure availability. However, Wi-Fi consumes significant power, making it less suitable for battery-powered devices requiring long operational life.\n\nBluetooth Low Energy (BLE) is designed for applications requiring short-range communication with minimal power consumption. BLE is ideal for wearable devices, health monitors, and smart home accessories that need to maintain connections while preserving battery life.\n\nZigbee and Z-Wave are mesh networking protocols specifically designed for smart home applications. These protocols create self-healing networks where devices can communicate through multiple paths, ensuring reliability even if individual devices fail.\n\nCellular protocols including 2G, 3G, 4G LTE, and emerging 5G technologies provide wide-area connectivity for IoT devices. Newer cellular IoT standards like NB-IoT (Narrowband IoT) and Cat-M1 are optimized for low-power, low-data-rate applications with extended coverage.\n\nMQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol designed for IoT applications. MQTT uses a publish-subscribe model that efficiently handles communication between devices and cloud services, making it ideal for scenarios with limited bandwidth or unreliable connections.\n\nCoAP (Constrained Application Protocol) is designed for resource-constrained devices and networks. It provides a RESTful interface similar to HTTP but with reduced overhead, making it suitable for devices with limited processing power and memory."
+        },
+        {
+          "id": 5,
+          "title": "Cloud Integration and Data Management",
+          "duration": "22 min",
+          "type": "content",
+          "content": "Cloud integration is a cornerstone of modern IoT architectures, providing the scalability, storage, and processing power necessary to handle massive amounts of data generated by connected devices.\n\nCloud platforms offer managed IoT services that simplify device connectivity, data ingestion, and application development. Major providers like AWS IoT Core, Microsoft Azure IoT Hub, and Google Cloud IoT Core provide comprehensive platforms with built-in security, device management, and analytics capabilities.\n\nData ingestion involves collecting and processing streams of data from IoT devices. This typically includes data validation, transformation, and routing to appropriate storage and processing systems. Edge computing concepts are increasingly important, allowing initial data processing to occur closer to the source, reducing latency and bandwidth requirements.\n\nData storage strategies must accommodate both real-time streaming data and historical archives. Time-series databases are optimized for IoT data patterns, while traditional relational databases may be used for device metadata and configuration information. Data lakes provide flexible storage for both structured and unstructured IoT data.\n\nAnalytics and machine learning capabilities enable IoT systems to extract meaningful insights from collected data. Real-time analytics support immediate decision-making and alerting, while batch processing enables trend analysis and predictive modeling. Machine learning algorithms can identify patterns, predict failures, and optimize system performance.\n\nSecurity considerations are paramount in cloud-integrated IoT systems. This includes device authentication, data encryption in transit and at rest, access control, and compliance with privacy regulations. Security measures must be implemented at every layer, from device firmware to cloud applications, ensuring end-to-end protection of sensitive information."
+        }
+      ]
+    },    "Artificial Intelligence": {
+      "title": "Artificial Intelligence",
+      "description": "Master the fundamentals of AI and machine learning algorithms",
+      "duration": "8 weeks",
+      "rating": "4.1",
+      "students": "3.5k",
+      "instructor": "Prof. Kavindu Shehan",
+      "imagePath": "assets/course_img/ai.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Introduction to Artificial Intelligence",
+          "duration": "20 min",
+          "type": "content",
+          "content": "Artificial Intelligence (AI) represents one of the most transformative technologies of our time, encompassing the development of computer systems that can perform tasks typically requiring human intelligence. This field combines computer science, mathematics, psychology, and philosophy to create systems capable of reasoning, learning, perception, and decision-making.\n\nThe history of AI dates back to ancient civilizations' myths of artificial beings, but modern AI began in the 1950s with pioneers like Alan Turing, who proposed the famous Turing Test as a measure of machine intelligence. The field has experienced several waves of optimism and skepticism, leading to periods known as 'AI winters' and 'AI springs.'\n\nAI can be categorized into narrow AI and general AI. Narrow AI, also called weak AI, is designed to perform specific tasks such as image recognition, language translation, or game playing. Current AI applications like virtual assistants, recommendation systems, and autonomous vehicles fall into this category. General AI, or strong AI, would possess human-like cognitive abilities across all domains, but this remains a theoretical goal.\n\nKey AI approaches include symbolic AI, which uses logic and knowledge representation; statistical AI, which relies on probabilistic models; and connectionist AI, which mimics neural networks. Machine learning, a subset of AI, enables systems to automatically improve performance through experience without explicit programming.\n\nAI applications span numerous industries including healthcare (diagnostic imaging, drug discovery), finance (fraud detection, algorithmic trading), transportation (autonomous vehicles, route optimization), and entertainment (content recommendation, game AI). Understanding these applications helps appreciate AI's potential impact on society and the economy."
+        },
+        {
+          "id": 2,
+          "title": "Machine Learning Fundamentals",
+          "duration": "30 min",
+          "type": "content",
+          "content": "Machine Learning (ML) is a subset of artificial intelligence that enables computers to learn and make decisions from data without being explicitly programmed for every scenario. This paradigm shift from traditional programming allows systems to identify patterns, make predictions, and adapt to new information automatically.\n\nSupervised learning uses labeled training data to learn mappings between inputs and desired outputs. Common algorithms include linear regression for predicting continuous values, logistic regression for binary classification, decision trees for interpretable rules, and support vector machines for complex boundary classification. The quality and quantity of labeled data significantly impact supervised learning performance.\n\nUnsupervised learning discovers hidden patterns in data without labeled examples. Clustering algorithms like K-means group similar data points, while dimensionality reduction techniques like Principal Component Analysis (PCA) identify the most important features. Association rule learning finds relationships between different variables, useful in market basket analysis and recommendation systems.\n\nReinforcement learning involves agents learning optimal behaviors through interaction with an environment, receiving rewards or penalties for actions. This approach has achieved remarkable success in game playing (AlphaGo), robotics, and autonomous systems. The agent must balance exploration of new strategies with exploitation of known successful actions.\n\nThe machine learning workflow typically involves data collection and preprocessing, feature selection and engineering, model selection and training, validation and testing, and deployment and monitoring. Cross-validation techniques help assess model performance and prevent overfitting, where models perform well on training data but poorly on new examples.\n\nEvaluation metrics vary by problem type: accuracy, precision, recall, and F1-score for classification; mean squared error and R-squared for regression; and specialized metrics for clustering and other unsupervised tasks. Understanding these metrics is crucial for developing effective ML solutions."
+        },
+        {
+          "id": 3,
+          "title": "Neural Networks and Deep Learning",
+          "duration": "35 min",
+          "type": "content",
+          "content": "Neural networks are computational models inspired by biological neural systems, consisting of interconnected nodes (neurons) that process and transmit information. These networks can learn complex patterns and relationships in data, making them powerful tools for various AI applications.\n\nA basic neural network consists of an input layer, one or more hidden layers, and an output layer. Each neuron receives weighted inputs, applies an activation function, and produces an output. Common activation functions include sigmoid, tanh, and ReLU (Rectified Linear Unit), each with different properties affecting learning dynamics.\n\nDeep learning refers to neural networks with multiple hidden layers, typically three or more. These deep architectures can learn hierarchical representations, where lower layers detect simple features and higher layers combine them into complex patterns. This hierarchical learning has revolutionized computer vision, natural language processing, and speech recognition.\n\nConvolutional Neural Networks (CNNs) are specialized for processing grid-like data such as images. They use convolutional layers that apply filters to detect local features, pooling layers that reduce spatial dimensions, and fully connected layers for final classification. CNNs have achieved human-level performance in image recognition tasks.\n\nRecurrent Neural Networks (RNNs) are designed for sequential data like text, speech, and time series. Unlike feedforward networks, RNNs have connections that create loops, allowing information to persist across time steps. Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) architectures address the vanishing gradient problem in traditional RNNs.\n\nTraining neural networks involves backpropagation, an algorithm that calculates gradients and updates weights to minimize prediction errors. Optimization techniques like gradient descent, Adam, and RMSprop help networks converge to good solutions. Regularization methods including dropout, batch normalization, and weight decay prevent overfitting and improve generalization."
+        },
+        {
+          "id": 4,
+          "title": "AI Ethics and Future Applications",
+          "duration": "40 min",
+          "type": "content",
+          "content": "As artificial intelligence becomes increasingly integrated into society, ethical considerations and responsible development practices become paramount. Understanding these implications is crucial for anyone working with AI technologies.\n\nBias in AI systems can perpetuate or amplify existing societal inequalities. Training data may contain historical biases, algorithms might discriminate against certain groups, and deployment contexts can create unfair outcomes. Addressing bias requires diverse development teams, careful data curation, algorithmic auditing, and ongoing monitoring of system performance across different populations.\n\nTransparency and explainability are essential for building trust in AI systems, especially in high-stakes applications like healthcare, criminal justice, and financial services. Explainable AI (XAI) techniques help users understand how models make decisions, enabling better oversight and accountability. However, there's often a trade-off between model performance and interpretability.\n\nPrivacy concerns arise from AI systems' ability to extract insights from personal data. Techniques like differential privacy, federated learning, and homomorphic encryption help protect individual privacy while enabling useful AI applications. Regulations like GDPR and emerging AI governance frameworks establish legal requirements for data protection and algorithmic accountability.\n\nThe future of AI holds immense potential across various domains. In healthcare, AI will enable personalized medicine, drug discovery acceleration, and early disease detection. Autonomous systems will transform transportation, manufacturing, and service industries. AI assistants will become more capable and ubiquitous, supporting human decision-making and creativity.\n\nEmerging technologies like quantum computing may revolutionize AI capabilities, enabling solutions to previously intractable problems. Brain-computer interfaces could create new forms of human-AI collaboration. However, these advances also raise questions about job displacement, human agency, and the concentration of AI capabilities.\n\nResponsible AI development requires interdisciplinary collaboration between technologists, ethicists, policymakers, and domain experts. This includes establishing ethical guidelines, implementing robust testing procedures, ensuring diverse stakeholder involvement, and maintaining human oversight of critical decisions."
+        }
+      ]
+    },    "Blockchain": {
+      "title": "Blockchain Technology",
+      "description": "Understanding distributed ledger technology and cryptocurrency",
+      "duration": "5 weeks",
+      "rating": "4.7",
+      "students": "1.8k",
+      "instructor": "Alex Rodriguez",
+      "imagePath": "assets/course_img/blockchain.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Understanding Blockchain Fundamentals",
+          "duration": "12 min",
+          "type": "content",
+          "content": "Blockchain technology represents a revolutionary approach to data storage and transaction processing, creating a distributed, immutable ledger that operates without central authority. At its core, blockchain is a continuously growing list of records, called blocks, which are linked and secured using cryptographic principles.\n\nEach block contains a cryptographic hash of the previous block, a timestamp, and transaction data. This structure creates an immutable chain where altering any historical record would require changing all subsequent blocks, making tampering computationally infeasible. The hash function ensures data integrity, while the chronological linking provides a complete audit trail.\n\nDecentralization is a fundamental characteristic of blockchain systems. Instead of relying on a central authority, the network is maintained by multiple participants (nodes) who collectively validate and record transactions. This distributed approach eliminates single points of failure and reduces the need for trusted intermediaries.\n\nConsensus mechanisms ensure all network participants agree on the ledger's current state. Proof of Work, used by Bitcoin, requires nodes to solve computationally intensive puzzles to validate transactions. Proof of Stake, employed by newer networks, selects validators based on their stake in the network, offering improved energy efficiency.\n\nTransparency and immutability are key benefits of blockchain technology. All transactions are visible to network participants, creating unprecedented transparency in financial and data transactions. Once recorded, transactions cannot be altered or deleted, providing a permanent and verifiable record of all activities.\n\nThe technology's applications extend far beyond cryptocurrency, including supply chain management, digital identity verification, smart contracts, voting systems, and intellectual property protection. Understanding these foundational concepts is essential for appreciating blockchain's transformative potential across various industries."
+        },
+        {
+          "id": 2,
+          "title": "Cryptocurrency Economics and Trading",
+          "duration": "22 min",
+          "type": "content",
+          "content": "Cryptocurrencies represent digital or virtual currencies secured by cryptography, making them nearly impossible to counterfeit or double-spend. Most cryptocurrencies operate on decentralized networks based on blockchain technology, creating new paradigms for monetary systems and financial transactions.\n\nBitcoin, created by the pseudonymous Satoshi Nakamoto in 2009, established the foundation for cryptocurrency development. It introduced concepts like digital scarcity through limited supply (21 million coins), peer-to-peer transactions without intermediaries, and cryptographic security for transaction validation.\n\nCryptographic principles underlying cryptocurrencies include digital signatures, hash functions, and public-key cryptography. Digital signatures ensure transaction authenticity, hash functions create unique identifiers for blocks and transactions, and public-key cryptography enables secure communication without shared secrets.\n\nMining is the process by which new cryptocurrency units are created and transactions are validated. Miners compete to solve complex mathematical puzzles, with successful miners receiving cryptocurrency rewards. This process secures the network and maintains consensus about transaction validity.\n\nCryptocurrency economics involve concepts like tokenomics (the economic model governing a cryptocurrency), market capitalization, trading volume, and price volatility. Factors influencing cryptocurrency values include adoption rates, regulatory developments, technological improvements, and market sentiment.\n\nTrading strategies range from day trading based on short-term price movements to long-term holding (HODLing) based on fundamental analysis. Technical analysis uses chart patterns and indicators to predict price movements, while fundamental analysis evaluates a cryptocurrency's underlying technology, team, and market potential.\n\nRegulatory landscapes vary globally, with some countries embracing cryptocurrencies while others impose restrictions or bans. Understanding regulatory frameworks is crucial for compliance and risk management in cryptocurrency activities."
+        },
+        {
+          "id": 3,
+          "title": "Smart Contracts and Decentralized Applications",
+          "duration": "28 min",
+          "type": "content",
+          "content": "Smart contracts are self-executing contracts with terms directly written into code, automatically enforcing agreements without human intervention. These programmable contracts run on blockchain networks, providing transparency, security, and elimination of intermediaries in various business processes.\n\nEthereum pioneered smart contract functionality, introducing a virtual machine that executes contract code across a distributed network. This innovation enabled the development of complex decentralized applications (DApps) that leverage blockchain's security and decentralization properties.\n\nSmart contract development typically uses specialized programming languages like Solidity for Ethereum. These contracts define functions, state variables, and events that govern how the contract behaves. Once deployed to the blockchain, smart contracts become immutable, executing exactly as programmed without possibility of downtime, censorship, fraud, or third-party interference.\n\nDecentralized Finance (DeFi) represents one of the most significant smart contract applications, recreating traditional financial services without centralized institutions. DeFi protocols enable lending, borrowing, trading, and yield farming through automated smart contracts, often providing better terms and accessibility than traditional finance.\n\nNon-Fungible Tokens (NFTs) use smart contracts to create unique digital assets representing ownership of digital or physical items. NFTs have revolutionized digital art, gaming, and collectibles markets by providing verifiable scarcity and ownership in digital spaces.\n\nDecentralized Autonomous Organizations (DAOs) represent organizations governed entirely by smart contracts and community voting. DAOs enable collective decision-making and resource management without traditional hierarchical structures, potentially transforming organizational governance.\n\nSecurity considerations in smart contract development include vulnerability testing, formal verification, and audit processes. Common vulnerabilities like reentrancy attacks, overflow/underflow errors, and access control issues must be carefully addressed to prevent financial losses.\n\nInteroperability between different blockchain networks is advancing through cross-chain protocols and bridges, enabling smart contracts to interact across multiple platforms and expanding the potential for complex multi-chain applications."
+        }
+      ]
+    },    "Data Analysis": {
+      "title": "Data Analysis",
+      "description": "Learn to analyze and interpret data effectively using modern tools",
+      "duration": "7 weeks",
+      "rating": "4.5",
+      "students": "2.8k",
+      "instructor": "Dr. Emily Watson",
+      "imagePath": "assets/course_img/analysis.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Data Collection and Preparation Methods",
+          "duration": "18 min",
+          "type": "content",
+          "content": "Data collection forms the foundation of any successful data analysis project. Understanding various data collection methods and their appropriate applications is crucial for obtaining reliable and meaningful insights.\n\nPrimary data collection involves gathering original data directly from sources through surveys, interviews, observations, and experiments. Surveys can be conducted online, by phone, or in person, each method having distinct advantages and limitations. Online surveys offer cost-effectiveness and wide reach but may suffer from response bias. Personal interviews provide deeper insights but are time-consuming and expensive.\n\nSecondary data collection utilizes existing data sources such as databases, reports, publications, and web scraping. This approach is often more efficient and cost-effective but requires careful evaluation of data quality, relevance, and currency. Common secondary sources include government databases, industry reports, academic publications, and social media platforms.\n\nData quality assessment involves evaluating completeness, accuracy, consistency, and timeliness. Missing data can be handled through deletion, imputation, or interpolation methods, depending on the missing data mechanism and analysis requirements. Outliers must be identified and appropriately treated, as they can significantly impact analysis results.\n\nData preprocessing includes cleaning, transformation, and integration activities. Cleaning involves correcting errors, standardizing formats, and resolving inconsistencies. Transformation may include normalization, aggregation, and feature engineering to prepare data for analysis. Integration combines data from multiple sources while addressing schema differences and duplicate records.\n\nEthical considerations in data collection include informed consent, privacy protection, and responsible use of personal information. Compliance with regulations like GDPR, HIPAA, and other privacy laws is essential. Data governance frameworks help establish policies and procedures for ethical data handling throughout the analysis lifecycle."
+        },
+        {
+          "id": 2,
+          "title": "Statistical Analysis Fundamentals",
+          "duration": "25 min",
+          "type": "content",
+          "content": "Statistical analysis provides the methodological foundation for extracting meaningful insights from data. Understanding fundamental statistical concepts and techniques is essential for conducting rigorous data analysis and making evidence-based decisions.\n\nDescriptive statistics summarize and describe data characteristics through measures of central tendency (mean, median, mode), dispersion (variance, standard deviation, range), and distribution shape (skewness, kurtosis). These measures provide initial insights into data patterns and help identify potential issues before proceeding with more complex analyses.\n\nProbability distributions model the likelihood of different outcomes in datasets. Common distributions include normal (bell curve), binomial (binary outcomes), Poisson (count data), and exponential (time between events). Understanding distribution properties helps select appropriate analytical methods and interpret results correctly.\n\nHypothesis testing provides a framework for making statistical inferences about populations based on sample data. The process involves formulating null and alternative hypotheses, selecting appropriate test statistics, determining significance levels, and interpreting p-values. Common tests include t-tests for comparing means, chi-square tests for categorical associations, and ANOVA for multiple group comparisons.\n\nConfidence intervals provide ranges of plausible values for population parameters, offering more informative results than point estimates alone. Understanding confidence level interpretation and factors affecting interval width helps communicate uncertainty appropriately and make informed decisions based on statistical evidence.\n\nCorrelation and regression analysis examine relationships between variables. Correlation measures the strength and direction of linear associations, while regression models predict one variable based on others. Multiple regression extends this to multiple predictors, enabling more sophisticated modeling of complex relationships.\n\nStatistical software tools like R, Python (pandas, scipy), SAS, and SPSS facilitate complex analyses and visualization. Each tool has strengths for different analytical tasks, and proficiency in multiple platforms enhances analytical capabilities and career prospects."
+        },
+        {
+          "id": 3,
+          "title": "Data Visualization and Communication",
+          "duration": "30 min",
+          "type": "content",
+          "content": "Data visualization transforms complex datasets into comprehensible visual representations, enabling stakeholders to understand patterns, trends, and insights quickly. Effective visualization combines statistical accuracy with design principles to communicate findings clearly and persuasively.\n\nChart selection depends on data types and analytical objectives. Bar charts effectively compare categorical values, line charts show trends over time, scatter plots reveal relationships between continuous variables, and histograms display distribution shapes. Advanced visualizations like heat maps, treemaps, and network diagrams address specific analytical needs.\n\nDesign principles for effective visualization include clarity, accuracy, and efficiency. Clear visualizations use appropriate scales, meaningful labels, and intuitive color schemes. Accurate representations avoid misleading distortions and maintain proportional relationships. Efficient designs maximize information density while minimizing cognitive load.\n\nInteractive dashboards enable users to explore data dynamically through filtering, drilling down, and parameter adjustment. Tools like Tableau, Power BI, and D3.js create engaging interfaces that support self-service analytics and collaborative decision-making. Dashboard design should prioritize user needs and workflow integration.\n\nStorytelling with data involves crafting narratives that guide audiences through analytical findings. Effective data stories have clear structures with compelling openings, logical progressions, and actionable conclusions. Visual elements should support the narrative flow rather than overwhelming viewers with excessive detail.\n\nAudience considerations affect visualization choices and communication strategies. Technical audiences may appreciate detailed statistical graphics, while executive audiences prefer high-level summaries with clear business implications. Cultural factors, accessibility requirements, and medium constraints (print, digital, presentation) influence design decisions.\n\nEthical visualization practices avoid manipulation and misrepresentation. This includes using appropriate scales, avoiding cherry-picking data, clearly indicating uncertainty, and providing sufficient context for interpretation. Responsible visualization builds trust and supports informed decision-making rather than advancing particular agendas through misleading presentations."
+        }
+      ]
+    },
+    "Big Data": {
+      "title": "Big Data",
+      "description": "Handle and process large datasets with modern technologies",
+      "duration": "9 weeks",
+      "rating": "4.3",
+      "students": "2.2k",
+      "instructor": "David Kim",
+      "imagePath": "assets/course_img/bigdata.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Introduction to Big Data",
+          "duration": "16 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "Hadoop Ecosystem",
+          "duration": "32 min",
+          "type": "video"
+        }
+      ]
+    },
+    "Data Warehouse": {
+      "title": "Data Warehouse",
+      "description": "Design and implement enterprise data warehouse solutions",
+      "duration": "8 weeks",
+      "rating": "4.7",
+      "students": "1.9k",
+      "instructor": "Jennifer Liu",
+      "imagePath": "assets/course_img/datawarehouse.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Data Warehouse Concepts",
+          "duration": "20 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "ETL Processes",
+          "duration": "25 min",
+          "type": "video"
+        }
+      ]
+    },
+    "Human Resource Management": {
+      "title": "Human Resource Management",
+      "description": "Master HR principles and people management strategies",
+      "duration": "6 weeks",
+      "rating": "4.4",
+      "students": "2.3k",
+      "instructor": "Maria Garcia",
+      "imagePath": "assets/course_img/hr.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "HR Fundamentals",
+          "duration": "18 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "Recruitment Strategies",
+          "duration": "22 min",
+          "type": "video"
+        }
+      ]
+    },
+    "Business Management": {
+      "title": "Business Management",
+      "description": "Learn essential business management and leadership skills",
+      "duration": "7 weeks",
+      "rating": "4.5",
+      "students": "2.7k",
+      "instructor": "Robert Taylor",
+      "imagePath": "assets/course_img/bussinessmanagement.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Business Strategy",
+          "duration": "24 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "Leadership Principles",
+          "duration": "28 min",
+          "type": "video"
+        }
+      ]
+    },
+    "Cloud Engineering": {
+      "title": "Cloud Engineering",
+      "description": "Build and deploy scalable cloud-based solutions",
+      "duration": "10 weeks",
+      "rating": "4.6",
+      "students": "2.4k",
+      "instructor": "James Wilson",
+      "imagePath": "assets/course_img/cloudengineering.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Cloud Computing Basics",
+          "duration": "20 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "AWS Fundamentals",
+          "duration": "35 min",
+          "type": "video"
+        }
+      ]
+    },
+    "Network Management": {
+      "title": "Network Management",
+      "description": "Monitor and maintain network infrastructure effectively",
+      "duration": "8 weeks",
+      "rating": "4.4",
+      "students": "1.7k",
+      "instructor": "Lisa Brown",
+      "imagePath": "assets/course_img/networkmanagement.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Network Fundamentals",
+          "duration": "22 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "Network Monitoring Tools",
+          "duration": "26 min",
+          "type": "video"
+        }
+      ]
+    },
+    "Network Engineering": {
+      "title": "Network Engineering",
+      "description": "Design and implement robust network architectures",
+      "duration": "12 weeks",
+      "rating": "4.5",
+      "students": "2.0k",
+      "instructor": "Mark Davis",
+      "imagePath": "assets/course_img/networkengineering.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Network Design Principles",
+          "duration": "30 min",
+          "type": "video"
+        },
+        {
+          "id": 2,
+          "title": "Routing Protocols",
+          "duration": "28 min",
+          "type": "video"
+        }
+      ]
+    },    "Power BI": {
+      "title": "Power BI",
+      "description": "Create interactive business intelligence dashboards",
+      "duration": "5 weeks",
+      "rating": "4.6",
+      "students": "3.1k",
+      "instructor": "Anna Martinez",
+      "imagePath": "assets/course_img/powerbi.png",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Power BI Fundamentals and Interface",
+          "duration": "15 min",
+          "type": "content",
+          "content": "Microsoft Power BI is a comprehensive business intelligence platform that enables organizations to transform raw data into meaningful insights through interactive visualizations and reports. As part of the Microsoft ecosystem, Power BI integrates seamlessly with other Microsoft products and provides powerful analytics capabilities for users of all technical levels.\n\nThe Power BI ecosystem consists of several components: Power BI Desktop for report creation, Power BI Service (cloud-based) for sharing and collaboration, Power BI Mobile for accessing reports on mobile devices, and Power BI Gateway for connecting to on-premises data sources. Understanding these components and their interconnections is essential for effective Power BI implementation.\n\nPower BI Desktop serves as the primary development environment where users create reports and dashboards. The interface consists of three main views: Report view for creating visualizations, Data view for examining and manipulating data tables, and Model view for managing relationships between tables. The ribbon interface provides access to various tools and functions organized logically by task.\n\nData connectivity is one of Power BI's greatest strengths, supporting connections to hundreds of data sources including Excel files, databases (SQL Server, Oracle, MySQL), cloud services (Azure, AWS, Google Analytics), web services, and online platforms (SharePoint, Salesforce). The Get Data function provides a unified interface for connecting to these diverse sources.\n\nThe Query Editor (Power Query) enables data transformation and cleansing before loading into the model. Common transformations include filtering rows, removing columns, changing data types, merging tables, and creating calculated columns. These transformations are recorded as steps that can be modified or removed, providing flexibility in data preparation.\n\nData modeling involves creating relationships between tables, defining hierarchies, and establishing proper data types. Star schema designs with fact and dimension tables optimize performance and simplify analysis. Understanding cardinality and cross-filter direction helps create effective data models that support accurate analysis."
+        },
+        {
+          "id": 2,
+          "title": "Advanced Data Modeling Techniques",
+          "duration": "25 min",
+          "type": "content",
+          "content": "Advanced data modeling in Power BI involves sophisticated techniques for handling complex data scenarios and optimizing performance. These skills enable analysts to create robust models that scale with organizational needs and support complex analytical requirements.\n\nDAX (Data Analysis Expressions) is Power BI's formula language for creating calculated columns, measures, and calculated tables. DAX combines elements of Excel formulas with database functions, providing powerful capabilities for aggregations, filtering, and time intelligence. Understanding DAX context (row context and filter context) is crucial for creating accurate calculations.\n\nMeasures are dynamic calculations that respond to filter context, making them ideal for aggregations like sums, averages, and percentages. Common measure patterns include basic aggregations (SUM, AVERAGE), time intelligence functions (SAMEPERIODLASTYEAR, DATEADD), and conditional calculations (CALCULATE with filters). Measures are preferred over calculated columns for aggregations due to better performance.\n\nTime intelligence functions enable sophisticated date-based analysis including year-over-year comparisons, running totals, and period-to-date calculations. These functions require a proper date table with continuous dates and appropriate relationships to fact tables. Mark as Date Table functionality optimizes time intelligence performance.\n\nRelationship management becomes complex in scenarios with multiple fact tables, many-to-many relationships, and role-playing dimensions. Techniques like inactive relationships, USERELATIONSHIP function, and bridge tables help handle these scenarios. Bidirectional filtering should be used judiciously due to potential performance impacts.\n\nRow-level security (RLS) restricts data access based on user identity, enabling secure data sharing within organizations. RLS is implemented through DAX expressions in security roles, which filter data dynamically based on user context. Testing RLS functionality is crucial before deployment to production environments.\n\nPerformance optimization involves various techniques including data reduction through summarization, appropriate data types selection, avoiding calculated columns when possible, and optimizing DAX expressions. DirectQuery and Composite models provide alternatives to Import mode for large datasets, each with specific use cases and limitations."
+        },
+        {
+          "id": 3,
+          "title": "Creating Compelling Visualizations and Reports",
+          "duration": "30 min",
+          "type": "content",
+          "content": "Creating effective visualizations in Power BI requires understanding both technical capabilities and design principles. Well-designed reports communicate insights clearly while enabling users to explore data intuitively and discover additional patterns.\n\nVisualization selection should align with analytical objectives and data characteristics. Bar and column charts effectively compare categories, line charts show trends over time, scatter plots reveal correlations, and maps display geographic patterns. Specialized visuals like waterfall charts, funnel charts, and decomposition trees address specific analytical needs.\n\nCustom visuals from the AppSource marketplace extend Power BI's capabilities with specialized chart types, advanced analytics, and integration with third-party services. However, custom visuals should be evaluated for security, performance, and organizational approval before deployment. Developing custom visuals requires JavaScript and D3.js knowledge.\n\nReport design principles emphasize clarity, consistency, and usability. Consistent color schemes, fonts, and layouts create professional-looking reports. White space prevents visual clutter, while logical grouping and alignment guide user attention. Interactive elements like slicers, filters, and drill-through functionality enable self-service exploration.\n\nDashboard creation involves assembling key metrics and visualizations into executive-level summaries. Effective dashboards focus on critical KPIs, use clear headings and labels, and provide sufficient context for interpretation. Real-time data refresh capabilities keep dashboards current for operational decision-making.\n\nMobile optimization ensures reports function effectively on smartphones and tablets. Power BI's mobile layout feature allows designers to create optimized phone views with appropriate sizing and navigation. Touch-friendly interactions and simplified layouts improve mobile user experience.\n\nAccessibility features including alt text for visuals, keyboard navigation support, and color choices for color-blind users ensure reports are usable by diverse audiences. Following WCAG guidelines demonstrates organizational commitment to inclusive design.\n\nReport sharing and collaboration involve various options including workspace sharing, app distribution, and embedding in websites or applications. Understanding permissions, licensing requirements, and security implications helps determine appropriate sharing strategies for different audiences and use cases."
+        }
+      ]
+    }
+  }
+}
