@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/app_header.dart';
 import '../widgets/bottom_nav_bar.dart';
 import '../quiz/quiz_page.dart';
-import '../widgets/animated_background.dart';
+import '../widgets/focus_aware_background.dart';
 
 class AskQuestionPage extends StatelessWidget {
   final String section;
@@ -16,7 +16,7 @@ class AskQuestionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: AnimatedBackground(
+      body: FocusAwareBackground(
         primaryColor: Colors.blue.shade400,
         secondaryColor: Colors.blue.shade600,
         opacity: 0.03,

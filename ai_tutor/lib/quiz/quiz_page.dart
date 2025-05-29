@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../models/lesson_models.dart'; // Add this import
 import '../widgets/app_header.dart';
 import '../widgets/bottom_nav_bar.dart';
 import '../widgets/animated_background.dart';
@@ -6,11 +7,13 @@ import 'result_page.dart';
 
 class QuizPage extends StatefulWidget {
   final String section;
+  final List<QuizQuestion>? quizQuestions; // Accept quiz questions from lesson
 
   const QuizPage({
-    super.key,
+    Key? key,
     required this.section,
-  });
+    this.quizQuestions,
+  }) : super(key: key);
 
   @override
   State<QuizPage> createState() => _QuizPageState();
@@ -18,36 +21,59 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   int _currentQuestionIndex = 0;
-  Map<int, int> _selectedAnswers = {};
+  int _score = 0;
+  List<int> _selectedAnswers = [];
+  List<QuizQuestion> _questions = [];
+  bool _loading = true;
+  bool _answersVisible = false;
+  bool _showExplanation = false;
   bool _showQuestionsList = false;
 
-  final List<Map<String, dynamic>> _questions = [
-    {
-      'question': 'What is ethical hacking primarily focused on?',
-      'options': [
-        'Breaking into systems illegally',
-        'Identifying security vulnerabilities',
-        'Writing malicious code',
-        'Stealing data'
-      ],
-      'correctAnswer': 1,
-    },
-    {
-      'question': 'Which framework is commonly used in ethical hacking?',
-      'options': ['OWASP', 'React', 'Angular', 'Vue'],
-      'correctAnswer': 0,
-    },
-    {
-      'question': 'What is the first step in ethical hacking methodology?',
-      'options': [
-        'Gaining Access',
-        'Scanning',
-        'Planning and Reconnaissance',
-        'Reporting'
-      ],
-      'correctAnswer': 2,
-    },
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _loadQuestions();
+  }
+
+  void _loadQuestions() async {
+    setState(() {
+      _loading = true;
+    });
+
+    try {
+      // If we have pre-loaded quiz questions from the lesson, use those
+      if (widget.quizQuestions != null && widget.quizQuestions!.isNotEmpty) {
+        setState(() {
+          _questions = widget.quizQuestions!;
+          _selectedAnswers = List.filled(_questions.length, -1);
+          _loading = false;
+        });
+      } else {
+        // Otherwise, create some dummy questions for testing
+        // In a real app, you would fetch these from your API
+        // setState(() {
+        //   _questions = [
+        //     QuizQuestion(
+        //       question: "What is the main focus of this section?",
+        //       options: ["Option 1", "Option 2", "Option 3", "Option 4"],
+        //       correctOptionIndex: 0,
+        //       explanation: "This is the explanation for the correct answer.",
+        //     ),
+        //     // Add more dummy questions
+        //   ];
+        //   _selectedAnswers = List.filled(_questions.length, -1);
+        //   _loading = false;
+        // });
+      }
+    } catch (e) {
+      setState(() {
+        _loading = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to load quiz questions: $e')),
+      );
+    }
+  }
 
   void _selectAnswer(int answerIndex) {
     setState(() {
@@ -73,11 +99,11 @@ class _QuizPageState extends State<QuizPage> {
 
   void _submitQuiz() {
     int correctAnswers = 0;
-    _selectedAnswers.forEach((questionIndex, selectedAnswer) {
-      if (selectedAnswer == _questions[questionIndex]['correctAnswer']) {
+    for (int i = 0; i < _selectedAnswers.length; i++) {
+      if (_selectedAnswers[i] == _questions[i].correctOptionIndex) {
         correctAnswers++;
       }
-    });
+    }
 
     Navigator.pushReplacement(
       context,
@@ -122,7 +148,7 @@ class _QuizPageState extends State<QuizPage> {
             child: ListView.builder(
               itemCount: _questions.length,
               itemBuilder: (context, index) {
-                final bool isAnswered = _selectedAnswers.containsKey(index);
+                final bool isAnswered = _selectedAnswers[index] != -1;
                 final bool isCurrent = index == _currentQuestionIndex;
 
                 return Container(
@@ -165,7 +191,7 @@ class _QuizPageState extends State<QuizPage> {
                       ),
                     ),
                     title: Text(
-                      _questions[index]['question'],
+                      _questions[index].question,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -271,8 +297,8 @@ class _QuizPageState extends State<QuizPage> {
                               ),
                               child: FractionallySizedBox(
                                 alignment: Alignment.centerLeft,
-                                widthFactor:
-                                    (_currentQuestionIndex + 1) / _questions.length,
+                                widthFactor: (_currentQuestionIndex + 1) /
+                                    _questions.length,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.blue,
@@ -293,7 +319,7 @@ class _QuizPageState extends State<QuizPage> {
                             const SizedBox(height: 12),
                             // Question
                             Text(
-                              question['question'],
+                              question.question,
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
@@ -302,7 +328,7 @@ class _QuizPageState extends State<QuizPage> {
                             const SizedBox(height: 24),
                             // Options
                             ...List.generate(
-                              question['options'].length,
+                              question.options.length,
                               (index) => Padding(
                                 padding: const EdgeInsets.only(bottom: 12),
                                 child: InkWell(
@@ -310,18 +336,18 @@ class _QuizPageState extends State<QuizPage> {
                                   child: Container(
                                     padding: const EdgeInsets.all(16),
                                     decoration: BoxDecoration(
-                                      color:
-                                          _selectedAnswers[_currentQuestionIndex] ==
-                                                  index
-                                              ? Colors.blue.withOpacity(0.1)
-                                              : Colors.grey[50],
+                                      color: _selectedAnswers[
+                                                  _currentQuestionIndex] ==
+                                              index
+                                          ? Colors.blue.withOpacity(0.1)
+                                          : Colors.grey[50],
                                       borderRadius: BorderRadius.circular(12),
                                       border: Border.all(
-                                        color:
-                                            _selectedAnswers[_currentQuestionIndex] ==
-                                                    index
-                                                ? Colors.blue
-                                                : Colors.grey.withOpacity(0.2),
+                                        color: _selectedAnswers[
+                                                    _currentQuestionIndex] ==
+                                                index
+                                            ? Colors.blue
+                                            : Colors.grey.withOpacity(0.2),
                                       ),
                                     ),
                                     child: Row(
@@ -357,8 +383,9 @@ class _QuizPageState extends State<QuizPage> {
                                         const SizedBox(width: 12),
                                         Expanded(
                                           child: Text(
-                                            question['options'][index],
-                                            style: const TextStyle(fontSize: 16),
+                                            question.options[index],
+                                            style:
+                                                const TextStyle(fontSize: 16),
                                           ),
                                         ),
                                       ],
@@ -380,14 +407,16 @@ class _QuizPageState extends State<QuizPage> {
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.grey[100],
                                         foregroundColor: Colors.grey[800],
-                                        padding:
-                                            const EdgeInsets.symmetric(vertical: 12),
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 12),
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                         ),
                                       ),
                                       child: const Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Icon(Icons.arrow_back, size: 20),
                                           SizedBox(width: 8),
@@ -401,21 +430,22 @@ class _QuizPageState extends State<QuizPage> {
                                 SizedBox(
                                   width: 130,
                                   child: ElevatedButton(
-                                    onPressed:
-                                        _currentQuestionIndex == _questions.length - 1
-                                            ? _submitQuiz
-                                            : _nextQuestion,
+                                    onPressed: _currentQuestionIndex ==
+                                            _questions.length - 1
+                                        ? _submitQuiz
+                                        : _nextQuestion,
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue,
                                       foregroundColor: Colors.white,
-                                      padding:
-                                          const EdgeInsets.symmetric(vertical: 12),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 12),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12),
                                       ),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           _currentQuestionIndex ==

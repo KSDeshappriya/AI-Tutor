@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117923418172",
+    "project_id": "bettingbot-b585b",
+    "storage_bucket": "bettingbot-b585b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117923418172:android:69ef33df7d4c3214f1b339",
+        "android_client_info": {
+          "package_name": "com.example.ai_tutor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgN79ER2WkeGg1UD7xNu0qTIkvc3UROs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

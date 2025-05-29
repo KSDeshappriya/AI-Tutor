@@ -8,6 +8,7 @@ class AnimatedBackground extends StatefulWidget {
   final bool enableParticles;
   final bool enableWaves;
   final double opacity;
+  final bool isPaused; // New parameter to pause animations
 
   const AnimatedBackground({
     super.key,
@@ -17,6 +18,7 @@ class AnimatedBackground extends StatefulWidget {
     this.enableParticles = true,
     this.enableWaves = true,
     this.opacity = 0.05,
+    this.isPaused = false, // Default to not paused
   });
 
   @override
@@ -49,6 +51,21 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   }
 
   @override
+  void didUpdateWidget(AnimatedBackground oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Handle pausing/resuming animations when isPaused changes
+    if (widget.isPaused && !oldWidget.isPaused) {
+      _controller1.stop();
+      _controller2.stop();
+      _particleController.stop();
+    } else if (!widget.isPaused && oldWidget.isPaused) {
+      _controller1.repeat();
+      _controller2.repeat(reverse: true);
+      _particleController.repeat();
+    }
+  }
+
+  @override
   void dispose() {
     _controller1.dispose();
     _controller2.dispose();
@@ -58,6 +75,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
 
   @override
   Widget build(BuildContext context) {
+    // When paused, we still show the background but without animation
     return Stack(
       children: [
         // Animated background
@@ -73,8 +91,8 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
                   particleAnimation: _particleController,
                   primaryColor: widget.primaryColor,
                   secondaryColor: widget.secondaryColor,
-                  enableParticles: widget.enableParticles,
-                  enableWaves: widget.enableWaves,
+                  enableParticles: widget.enableParticles && !widget.isPaused,
+                  enableWaves: widget.enableWaves && !widget.isPaused,
                   opacity: widget.opacity,
                 ),
               );

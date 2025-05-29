@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/home_page.dart';
-import '../widgets/animated_background.dart';
+import '../widgets/focus_aware_background.dart';
 import 'signup_page.dart';
 import 'forgot_password_page.dart';
 
@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: AnimatedBackground(
+      body: FocusAwareBackground(
         primaryColor: Colors.blue.shade400,
         secondaryColor: Colors.blue.shade600,
         opacity: 0.03,

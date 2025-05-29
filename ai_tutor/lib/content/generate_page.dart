@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ai_tutor/services/api_service.dart';
+import 'package:ai_tutor/models/course_models.dart';
+import 'package:ai_tutor/content/content_preview_page.dart';
+import 'package:ai_tutor/content/document_upload_page.dart';
 import '../widgets/app_header.dart';
 import '../widgets/bottom_nav_bar.dart';
-import 'content_preview_page.dart';
-import '../widgets/animated_background.dart';
+import '../widgets/focus_aware_background.dart';
 
 class GeneratePage extends StatefulWidget {
   const GeneratePage({super.key});
@@ -13,6 +16,21 @@ class GeneratePage extends StatefulWidget {
 
 class _GeneratePageState extends State<GeneratePage> {
   String? _selectedOption;
+  bool _isLoading = false;
+  final ApiService _apiService = ApiService();
+  late TextEditingController _topicController;
+
+  @override
+  void initState() {
+    super.initState();
+    _topicController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _topicController.dispose();
+    super.dispose();
+  }
 
   void _showDropUpMenu(BuildContext context) {
     showModalBottomSheet(
@@ -37,10 +55,35 @@ class _GeneratePageState extends State<GeneratePage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildMenuItem('Upload Document', Icons.description_outlined),
-              _buildMenuItem('Upload Presentation', Icons.slideshow_outlined),
-              _buildMenuItem('Upload Image', Icons.image_outlined),
-              _buildMenuItem('Take an Image', Icons.photo_camera_outlined),
+              _buildMenuItem('Upload Document', Icons.description_outlined, () {
+                Navigator.pop(context);
+                // Use pushReplacement to avoid stacking screens
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DocumentUploadPage()),
+                );
+              }),
+              _buildMenuItem('Upload Presentation', Icons.slideshow_outlined,
+                  () {
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text('Presentation upload coming soon')),
+                );
+              }),
+              _buildMenuItem('Upload Image', Icons.image_outlined, () {
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Image upload coming soon')),
+                );
+              }),
+              _buildMenuItem('Take an Image', Icons.photo_camera_outlined, () {
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Camera feature coming soon')),
+                );
+              }),
             ],
           ),
         );
@@ -48,7 +91,8 @@ class _GeneratePageState extends State<GeneratePage> {
     );
   }
 
-  Widget _buildMenuItem(String text, IconData icon) {
+  Widget _buildMenuItem(String text, IconData icon,
+      [Function()? onTapOverride]) {
     final isSelected = _selectedOption == text;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -91,12 +135,13 @@ class _GeneratePageState extends State<GeneratePage> {
                 size: 20,
               )
             : null,
-        onTap: () {
-          setState(() {
-            _selectedOption = text;
-          });
-          Navigator.pop(context);
-        },
+        onTap: onTapOverride ??
+            () {
+              setState(() {
+                _selectedOption = text;
+              });
+              Navigator.pop(context);
+            },
       ),
     );
   }
@@ -105,7 +150,7 @@ class _GeneratePageState extends State<GeneratePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: AnimatedBackground(
+      body: FocusAwareBackground(
         primaryColor: Colors.blue.shade400,
         secondaryColor: Colors.blue.shade600,
         opacity: 0.03,
@@ -240,10 +285,12 @@ class _GeneratePageState extends State<GeneratePage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: TextField(
+                          controller: _topicController,
                           decoration: InputDecoration(
                             hintText: 'Enter your Topic...',
                             hintStyle: TextStyle(
-                              color: Colors.grey[1000],
+                              color: Colors.grey[
+                                  400], // Adjusted for better visibility on grey[100]
                               fontSize: 14,
                             ),
                             border: InputBorder.none,
@@ -297,39 +344,97 @@ class _GeneratePageState extends State<GeneratePage> {
                                 child: Material(
                                   color: Colors.transparent,
                                   child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ContentPreviewPage(),
-                                        ),
-                                      );
-                                    },
+                                    onTap: _isLoading
+                                        ? null
+                                        : () async {
+                                            if (_topicController.text.isEmpty) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                    content: Text(
+                                                        'Please enter a topic')),
+                                              );
+                                              return;
+                                            }
+
+                                            setState(() {
+                                              _isLoading = true;
+                                            });
+
+                                            final request = CourseRequest(
+                                              title: _topicController.text,
+                                              description:
+                                                  "A comprehensive course on ${_topicController.text}",
+                                              targetAudience: "Beginners",
+                                              timeAvailable: "1 week",
+                                              preferredFormat:
+                                                  "Text-based modules",
+                                              learningObjectives: [],
+                                            );
+
+                                            try {
+                                              final courseResponse =
+                                                  await _apiService
+                                                      .planCourse(request);
+                                              // Navigate to ContentPreviewPage with courseResponse
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ContentPreviewPage(
+                                                          courseData:
+                                                              courseResponse),
+                                                ),
+                                              );
+                                            } catch (e) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                    content: Text(
+                                                        'Failed to plan course: $e')),
+                                              );
+                                            } finally {
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                            }
+                                          },
                                     borderRadius: BorderRadius.circular(22),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const Text(
-                                          'Generate Now',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
+                                    child: _isLoading
+                                        ? const Center(
+                                            child: SizedBox(
+                                              width: 20,
+                                              height: 20,
+                                              child: CircularProgressIndicator(
+                                                color: Colors.white,
+                                                strokeWidth: 2,
+                                              ),
+                                            ),
+                                          )
+                                        : Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              const Text(
+                                                'Generate Now',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 8),
+                                              Container(
+                                                padding:
+                                                    const EdgeInsets.all(4),
+                                                child: const Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Colors.white,
+                                                  size: 14,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ),
-                                        const SizedBox(width: 8),
-                                        Container(
-                                          padding: const EdgeInsets.all(4),
-                                          child: const Icon(
-                                            Icons.arrow_forward,
-                                            color: Colors.white,
-                                            size: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                   ),
                                 ),
                               ),

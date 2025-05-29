@@ -1,8 +1,28 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'auth/login_page.dart';
 import 'widgets/animated_background.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize Firebase for web
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyA8zSt_0YNcx6wt5ycWYclol1N-r8CJawk",
+        authDomain: "bettingbot-b585b.firebaseapp.com",
+        projectId: "bettingbot-b585b",
+        storageBucket: "bettingbot-b585b.firebasestorage.app",
+        messagingSenderId: "117923418172",
+        appId: "1:117923418172:web:820026f15c25d239f1b339",
+        measurementId: "G-XCFD38EMSH",
+      )
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
+
   runApp(const MyApp());
 }
 
