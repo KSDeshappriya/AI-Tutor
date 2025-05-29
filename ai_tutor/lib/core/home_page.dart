@@ -374,10 +374,10 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   children: [
-                    _buildCategoryButton('Popular'),
                     _buildCategoryButton('Recommended'),
+                    _buildCategoryButton('Popular'),
+                    _buildCategoryButton('Top Search'),
                     _buildCategoryButton('New'),
-                    _buildCategoryButton('Adventure'),
                   ],
                 ),
               ),
@@ -387,47 +387,52 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   children: [
                     _buildSection(
-                      'Popular',
-                      [
-                        _buildLocationCard(
-                            'Alley Palace', '4.1', 'assets/mountain_bg.jpg'),
-                        _buildLocationCard(
-                            'Coeurdes Alpes', '4.5', 'assets/mountain_bg.jpg'),
-                        _buildLocationCard(
-                            'Mountain View', '4.3', 'assets/mountain_bg.jpg'),
-                      ],
-                    ),
-                    _buildSection(
                       'Recommended',
                       [
-                        _buildAspenCard('Explore Aspen', 'Hot Deal',
-                            'assets/mountain_bg.jpg', '5N/6D'),
-                        _buildAspenCard('Luxurious Aspen', 'Hot Deal',
-                            'assets/mountain_bg.jpg', '7N/8D'),
-                        _buildAspenCard('Adventure Aspen', 'Best Offer',
-                            'assets/mountain_bg.jpg', '4N/5D'),
+                        _buildAspenCard('Blockchain', ' Recommended',
+                            'assets/course_img/blockchain.png', '5min'),
+                        _buildAspenCard(
+                            ' Bussiness Management',
+                            ' Recommended',
+                            'assets/course_img/bussinessmanagement.png',
+                            '7min'),
+                        _buildAspenCard('Cloud Engineering', ' Recommended',
+                            'assets/course_img/cloudengineering.png', '4min'),
+                      ],
+                    ),
+                    
+                    _buildSection(
+                      'Popular',
+                      [
+                        _buildLocationCard('Artificial Intelligence', '4.1',
+                            'assets/course_img/ai.png'),
+                        _buildLocationCard('Data Analysis', '4.5',
+                            'assets/course_img/analysis.png'),
+                        _buildLocationCard(
+                            'Big Data', '4.3', 'assets/course_img/bigdata.png'),
+                      ],
+                    ),
+                    
+                    _buildSection(
+                      'Top Search',
+                      [
+                        _buildLocationCard('Data Warehouse', '4.7',
+                            'assets/course_img/datawarehouse.png'),
+                        _buildLocationCard('Human Resource Management', '4.4',
+                            'assets/course_img/hr.png'),
+                        _buildLocationCard(
+                            'IOT', '4.6', 'assets/course_img/iot.png'),
                       ],
                     ),
                     _buildSection(
                       'New',
                       [
-                        _buildLocationCard(
-                            'Crystal Bay', '4.7', 'assets/mountain_bg.jpg'),
-                        _buildLocationCard(
-                            'Blue Lagoon', '4.4', 'assets/mountain_bg.jpg'),
-                        _buildLocationCard(
-                            'Sunset Peak', '4.6', 'assets/mountain_bg.jpg'),
-                      ],
-                    ),
-                    _buildSection(
-                      'Adventure',
-                      [
-                        _buildAspenCard('Mountain Trek', 'New Tour',
-                            'assets/mountain_bg.jpg', '3N/4D'),
-                        _buildAspenCard('Rock Climbing', 'Best Deal',
-                            'assets/mountain_bg.jpg', '2N/3D'),
-                        _buildAspenCard('Valley Hike', 'Featured',
-                            'assets/mountain_bg.jpg', '4N/5D'),
+                        _buildAspenCard('Network Management', 'New',
+                            'assets/course_img/networkmanagement.png', '3min'),
+                        _buildAspenCard('Network Engineering', 'New',
+                            'assets/course_img/networkengineering.png', '2min'),
+                        _buildAspenCard('Power BI', 'New',
+                            'assets/course_img/powerbi.png', '4min'),
                       ],
                     ),
                   ],

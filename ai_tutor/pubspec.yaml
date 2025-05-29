@@ -68,6 +68,19 @@ flutter:
     - assets/hexaelite_logo.png
     - assets/google_icon.png
     - assets/facebook_icon.png
+    - assets/course_img/ai.png
+    - assets/course_img/analysis.png
+    - assets/course_img/bigdata.png
+    - assets/course_img/blockchain.png
+    - assets/course_img/bussinessmanagement.png
+    - assets/course_img/cloudengineering.png
+    - assets/course_img/datawarehouse.png
+    - assets/course_img/hr.png
+    - assets/course_img/iot.png
+    - assets/course_img/networkmanagement.png
+    - assets/course_img/networkengineering.png
+    - assets/course_img/powerbi.png
+    - assets/course_img/wirelesscommunication.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

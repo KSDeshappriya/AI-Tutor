@@ -141,10 +141,10 @@ class _FavoritePageState extends State<FavoritePage> {
                   itemCount: 10, // Example count
                   itemBuilder: (context, index) {
                     return _buildFavoriteCard(
-                      title: 'Python Course ${index + 1}',
+                      title: 'Artificial Intelligence ${index + 1}',
                       subtitle: '12 Lessons',
                       progress: (index + 1) * 0.1,
-                      imagePath: 'assets/mountain_bg.jpg',
+                      imagePath: 'assets/course_img/ai.png',
                     );
                   },
                 ),
