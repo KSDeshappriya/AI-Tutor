@@ -1,11 +1,11 @@
 {
-    "name": "ai_tutor",
-    "short_name": "ai_tutor",
+    "name": "HexaElite AI Tutor",
+    "short_name": "AI Tutor",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "AI-powered educational content creation platform",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

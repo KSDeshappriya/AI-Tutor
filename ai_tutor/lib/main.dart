@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'auth/login_page.dart';
+import 'core/home_page.dart';
+import 'services/auth_service.dart';
 import 'widgets/animated_background.dart';
 
 void main() async {
@@ -9,16 +12,15 @@ void main() async {
   // Initialize Firebase for web
   if (kIsWeb) {
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyA8zSt_0YNcx6wt5ycWYclol1N-r8CJawk",
-        authDomain: "bettingbot-b585b.firebaseapp.com",
-        projectId: "bettingbot-b585b",
-        storageBucket: "bettingbot-b585b.firebasestorage.app",
-        messagingSenderId: "117923418172",
-        appId: "1:117923418172:web:820026f15c25d239f1b339",
-        measurementId: "G-XCFD38EMSH",
-      )
-    );
+        options: const FirebaseOptions(
+      apiKey: "AIzaSyA8zSt_0YNcx6wt5ycWYclol1N-r8CJawk",
+      authDomain: "bettingbot-b585b.firebaseapp.com",
+      projectId: "bettingbot-b585b",
+      storageBucket: "bettingbot-b585b.firebasestorage.app",
+      messagingSenderId: "117923418172",
+      appId: "1:117923418172:web:820026f15c25d239f1b339",
+      measurementId: "G-XCFD38EMSH",
+    ));
   } else {
     await Firebase.initializeApp();
   }
@@ -38,7 +40,35 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const StartPage(),
+      home: const AuthWrapper(),
+    );
+  }
+}
+
+// A wrapper widget to handle authentication state
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        // Show loading indicator while checking auth status
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        // If user is authenticated, show HomePage
+        if (snapshot.hasData) {
+          return const HomePage();
+        }
+
+        // If user is not authenticated, show StartPage
+        return const StartPage();
+      },
     );
   }
 }
